@@ -15,11 +15,10 @@ public class DiDemoApplication {
         ApplicationContext ctx = SpringApplication.run(DiDemoApplication.class, args);
 
         MyController controller = (MyController)ctx.getBean("myController");
-        controller.sayHello();
 
 //        SetterInjectedController controller = (SetterInjectedController)ctx.getBean("setterInjectedController");
 //        System.out.println(controller.sayHello());
-
+        System.out.println(controller.sayHello());
         System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
         System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
         System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
