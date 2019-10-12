@@ -1,9 +1,7 @@
 package guru.springframework.didemo;
 
-import guru.springframework.didemo.controller.ConstructorInjectedController;
 import guru.springframework.didemo.controller.MyController;
-import guru.springframework.didemo.controller.PropertyInjectedController;
-import guru.springframework.didemo.controller.SetterInjectedController;
+import guru.springframework.didemo.examplebeans.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -16,12 +14,10 @@ public class DiDemoApplication {
 
         MyController controller = (MyController)ctx.getBean("myController");
 
-//        SetterInjectedController controller = (SetterInjectedController)ctx.getBean("setterInjectedController");
-//        System.out.println(controller.sayHello());
-        System.out.println(controller.sayHello());
-        System.out.println(ctx.getBean(PropertyInjectedController.class).sayHello());
-        System.out.println(ctx.getBean(SetterInjectedController.class).sayHello());
-        System.out.println(ctx.getBean(ConstructorInjectedController.class).sayHello());
+
+        FakeDataSource fakeDataSource = (FakeDataSource) ctx.getBean(FakeDataSource.class);
+        System.out.println(fakeDataSource);
+
     }
 
 }
