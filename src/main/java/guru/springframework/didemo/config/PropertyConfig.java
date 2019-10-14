@@ -2,12 +2,10 @@ package guru.springframework.didemo.config;
 
 import guru.springframework.didemo.examplebeans.FakeDataSource;
 import guru.springframework.didemo.examplebeans.FakeJmsBroker;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.core.env.Environment;
 
 /**
  * Created by thamhv on 10/13/2019.
@@ -20,8 +18,8 @@ import org.springframework.core.env.Environment;
 //})
 public class PropertyConfig {
 
-    @Autowired
-    Environment env;
+    //@Autowired
+    //Environment env;
 
     @Value("${guru.username}")
     String username;
@@ -43,7 +41,7 @@ public class PropertyConfig {
 
     @Bean
     public FakeDataSource fakeDataSource(){
-        FakeDataSource fakeDataSource = new FakeDataSource(env.getProperty("USERNAME"),password,url);
+        FakeDataSource fakeDataSource = new FakeDataSource(username,password,url);
         return fakeDataSource;
     }
 
